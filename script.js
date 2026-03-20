@@ -19,8 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const isExternal = session.type === 'external';
             const isNone = session.type === 'none' || !session.link;
             
+            // Image path
+            const imageUrl = `images/${session.num}TH.png`;
+            
             card.innerHTML = `
                 <div class="session-num">#${session.num}</div>
+                <div class="session-thumbnail">
+                    <img src="${imageUrl}" alt="Session ${session.num}" onerror="this.parentElement.style.display='none'">
+                </div>
                 <div class="session-info">
                     <div class="session-title">${session.speaker ? session.speaker + ' | ' : ''}${session.title}</div>
                     <div class="session-desc">${session.description}</div>

@@ -164,17 +164,18 @@ body {
 
 .session-card {
     display: grid;
-    grid-template-columns: 80px 1fr 120px;
+    grid-template-columns: 80px 180px 1fr 120px;
     align-items: center;
-    padding: 2rem 0;
+    padding: 2.5rem 0;
     border-bottom: 1px solid var(--border);
     transition: var(--transition);
     cursor: pointer;
+    gap: 1rem;
 }
 
 .session-card:hover {
     padding-left: 1rem;
-    background-color: rgba(0,0,0,0.02);
+    background-color: rgba(0,0,0,0.01);
 }
 
 .session-num {
@@ -184,8 +185,30 @@ body {
     color: var(--text-muted);
 }
 
+.session-thumbnail {
+    width: 180px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.session-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.session-card:hover .session-thumbnail img {
+    transform: scale(1.05);
+}
+
 .session-info {
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .session-title {
@@ -317,6 +340,10 @@ body {
         grid-template-columns: 60px 1fr;
         gap: 1rem;
         padding: 1.5rem 0;
+    }
+    
+    .session-thumbnail {
+        display: none;
     }
     
     .session-action {
