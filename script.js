@@ -14,8 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = 'session-card';
             
-            // Check if it's a playable session
-            const isPlayable = session.id && session.type === 'google-drive';
+            // Check session type
+            const isGoogleDrive = session.type === 'google-drive';
+            const isExternal = session.type === 'external';
+            const isNone = session.type === 'none' || !session.link;
             
             card.innerHTML = `
                 <div class="session-num">#${session.num}</div>
@@ -24,18 +26,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="session-desc">${session.description}</div>
                 </div>
                 <div class="session-action">
-                    ${isPlayable ? `
+                    ${!isNone ? `
                         <div class="play-button">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
+                            ${isGoogleDrive ? `
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            ` : `
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            `}
                         </div>
                     ` : ''}
                 </div>
             `;
             
-            if (isPlayable) {
+            if (isGoogleDrive) {
                 card.onclick = () => openModal(session);
+            } else if (isExternal) {
+                card.onclick = () => window.open(session.link, '_blank');
             }
             
             sessionGrid.appendChild(card);
@@ -46,20 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Modal logic
     function openModal(session) {
-        // Convert view link to preview link for embedding
-        // Link format: https://drive.google.com/file/d/ID/preview
-        const embedUrl = `https://drive.google.com/file/d/${session.id}/preview`;
+        const embedUrl = `https://drive.google.com/file/d/${session.link}/preview`;
         
         videoPlayer.src = embedUrl;
         modalTitle.textContent = session.title;
         modalDesc.textContent = session.description;
         modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
         modal.style.display = 'none';
-        videoPlayer.src = ''; // Stop video
+        videoPlayer.src = ''; 
         document.body.style.overflow = 'auto';
     }
 
@@ -71,6 +81,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Initial render
     renderSessions();
 });
