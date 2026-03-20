@@ -4,7 +4,7 @@ const sessionData = [
         speaker: "古館さん",
         title: "第27回 セッション",
         description: "Google Driveから直接再生が可能な第27回アーカイブ。古館さんによるプレゼンテーション。",
-        link: "1Afdm5dqX56DJ4NlZvlU3n_IIYF1kacyl",
+        link: "1tBw3gKDSEQ_p8DLo9b4jLpcnS5biY--B",
         type: "google-drive"
     },
     {
