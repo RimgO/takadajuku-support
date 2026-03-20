@@ -87,9 +87,50 @@ body {
     animation: fadeIn 1s 0.3s forwards;
 }
 
+.fade-in-delay-more {
+    opacity: 0;
+    animation: fadeIn 1s 0.6s forwards;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero Actions */
+.hero-actions {
+    margin-top: 2.5rem;
+}
+
+.gemini-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.gemini-link:hover {
+    background: white;
+    color: black;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.gemini-link svg {
+    color: #4285F4; /* Gemini blue color */
+}
+
+.gemini-link:hover svg {
+    color: #4285F4;
 }
 
 /* Session List Section */
