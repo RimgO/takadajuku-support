@@ -5,7 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitle = document.getElementById('modalTitle');
     const modalDesc = document.getElementById('modalDesc');
     const videoPlayer = document.getElementById('videoPlayer');
-    const closeButton = document.querySelector('.close-button');
+    
+    // Lightbox for images
+    const imageModal = document.getElementById('imageModal');
+    const enlargedImage = document.getElementById('enlargedImage');
+    
+    const closeButtons = document.querySelectorAll('.close-button');
 
     // Render session list
     function renderSessions() {
@@ -50,10 +55,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             
+            // Add click events
             if (isGoogleDrive) {
                 card.onclick = () => openModal(session);
             } else if (isExternal) {
                 card.onclick = () => window.open(session.link, '_blank');
+            }
+
+            // Lightbox for thumbnail
+            const thumb = card.querySelector('.session-thumbnail img');
+            if (thumb) {
+                thumb.onclick = (e) => {
+                    e.stopPropagation(); // Don't trigger session card click
+                    openLightbox(imageUrl);
+                };
             }
             
             sessionGrid.appendChild(card);
@@ -73,16 +88,25 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'hidden';
     }
 
+    // Lightbox logic
+    function openLightbox(url) {
+        enlargedImage.src = url;
+        imageModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
     function closeModal() {
         modal.style.display = 'none';
+        imageModal.style.display = 'none';
         videoPlayer.src = ''; 
+        enlargedImage.src = '';
         document.body.style.overflow = 'auto';
     }
 
-    closeButton.onclick = closeModal;
+    closeButtons.forEach(btn => btn.onclick = closeModal);
     
     window.onclick = (event) => {
-        if (event.target == modal) {
+        if (event.target == modal || event.target == imageModal) {
             closeModal();
         }
     };
