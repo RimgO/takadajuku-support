@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熱血営業高田塾 リンク集</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="fade-in">熱血営業高田塾</h1>
+            <p class="fade-in-delay">アーカイブ・リンク集</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="session-list-section">
+            <div class="section-header">
+                <h2>セッション一覧</h2>
+                <div class="session-count" id="sessionCount">Loading...</div>
+            </div>
+            <div id="sessionGrid" class="session-grid">
+                <!-- Data will be injected here -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 熱血営業高田塾. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="video-container">
+                <iframe id="videoPlayer" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
