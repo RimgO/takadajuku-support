@@ -79,7 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Modal logic
     function openModal(session) {
-        const embedUrl = `https://drive.google.com/file/d/${session.link}/preview`;
+        let fileId = session.link;
+        // Extract the 33-character file ID if a full Google Drive URL was pasted
+        const match = session.link.match(/[-\w]{25,}/);
+        if (match) {
+            fileId = match[0];
+        }
+        const embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
         
         videoPlayer.src = embedUrl;
         modalTitle.textContent = session.title;
