@@ -24,8 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const isExternal = session.type === 'external';
             const isNone = session.type === 'none' || !session.link;
             
-            // Image path
-            const imageUrl = `images/${session.num}TH.png`;
+            // Image path (e.g., '1' -> '01', '27' -> '27')
+            const paddedNum = session.num.padStart(2, '0');
+            const imageUrl = `images/${paddedNum}TH.png`;
             
             card.innerHTML = `
                 <div class="session-num">#${session.num}</div>
