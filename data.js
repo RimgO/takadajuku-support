@@ -12,7 +12,7 @@ const sessionData = [
         speaker: "東山さん (スタートアップのエクイティファイナンス)",
         title: "スタートアップのエクイティファイナンスについて",
         description: "スタートアップのエクイティファイナンスについて、その仕組みや重要なポイントの解説",
-        link: "1wyTfohjFebJX8yJ1E-EAOqFdqofN7xdw",
+        link: "https://drive.google.com/file/d/1KMOC61Gzb4PyIu4cAY1K_n1zxoJ3MBed/view?usp=sharing",
         type: "google-drive"
     },
     {
