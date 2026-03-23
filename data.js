@@ -124,7 +124,7 @@ const sessionData = [
         speaker: "北野さん (カンボジア)",
         title: "カンボジアの今",
         description: "カンボジアの今",
-        link: "https://drive.google.com/file/d/1Z3vovRnmye4ZnUnUnF9LgtL2TjTt6heC/view?usp=sharing",
+        link: "https://drive.google.com/file/d/1z95hguuKZPi2lOiji-44t5Fqn93oG8JK/view?usp=sharing",
         type: "google-drive"
     },
     {
