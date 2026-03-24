@@ -100,7 +100,7 @@ const sessionData = [
         speaker: "由利さん (あきらめない経営)",
         title: "24年間企業を率いた経験から「経営者として学んだこと」",
         description: "24年間企業を率いた経験から「経営者として学んだこと」を解説します。",
-        link: "https://drive.google.com/file/d/1ZWb00Yrdjkr_VsFj4EZyDVPvNNoJEimX/view?usp=sharing",
+        link: "https://drive.google.com/file/d/1fHZJCFRFhYVbYpOlVJVL-TupvVMe1gSF/view?usp=drive_link",
         type: "google-drive"
     },
     {
@@ -140,7 +140,7 @@ const sessionData = [
         speaker: "仲屋さん (イノベーション)",
         title: "無意識バイアスの外に存在する、イノベーションの素",
         description: "無意識バイアスの外に存在する、イノベーションの素",
-        link: "https://drive.google.com/file/d/1tY2MpY2mXeTqKVCcrQC1l3GylO9bPceh/view?usp=sharing",
+        link: "https://drive.google.com/file/d/10VwhUfv4zWLkGbGoyXOsKfpkUiVwuwTq/view?usp=drive_link",
         type: "google-drive"
     },
     {
