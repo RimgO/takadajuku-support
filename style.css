@@ -373,17 +373,23 @@ body {
     }
     
     .session-card {
-        grid-template-columns: 60px 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 0;
         gap: 1rem;
-        padding: 1.5rem 0;
     }
     
     .session-thumbnail {
-        display: none;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        display: flex;
     }
     
     .session-action {
-        display: none;
+        display: block;
+        margin-top: 0.5rem;
     }
     
     .session-info {
